@@ -26,13 +26,11 @@ public class EventoController {
     public String criar(){
         return "evento/criar";
     }
-
     @PostMapping("/evento/criar")
     public String criar(Evento ev){
         er.save(ev);
         return "redirect:/evento";
     }
-
     @GetMapping("/evento")
     public String listar(Model view){
         List<Evento> listaEventos = er.findAll();
@@ -41,7 +39,6 @@ public class EventoController {
 
         return "evento/listar";
     }
-
     @GetMapping("/evento/alterar/{id}")
     public String alterar(@PathVariable Long id, Model model) {
         Evento evento;
@@ -49,8 +46,7 @@ public class EventoController {
 
         model.addAttribute("evento", evento);
         return "evento/alterar";
-    }    
-
+    }
     @PostMapping("/evento/alterar/{id}")
     public String alterar(@PathVariable Long id, Evento ev) {
         ev.setId(id);
@@ -59,6 +55,4 @@ public class EventoController {
         
         return "redirect:/evento";
     }
-    
-
 }

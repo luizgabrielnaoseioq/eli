@@ -1,20 +1,15 @@
 package com.senai.eli.Model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import com.senai.eli.Enum.Sexo;
 import com.senai.eli.Validator.Telefone.Telefone;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
@@ -45,4 +40,12 @@ public class Usuario {
 
     @Column(name = "nascimento", nullable = false)
     private LocalDate nascimento;
+
+    @ManyToMany
+    @JoinTable(
+            name = "usuario_evento",
+            joinColumns = @JoinColumn(name = "usuario-id"),
+            inverseJoinColumns = @JoinColumn(name = "evento-id")
+    )
+    private List<Evento> eventos = new ArrayList<>();
 }

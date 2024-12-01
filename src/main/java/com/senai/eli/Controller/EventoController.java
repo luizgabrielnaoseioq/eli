@@ -2,18 +2,15 @@ package com.senai.eli.Controller;
 
 import java.util.List;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import com.senai.eli.Model.Evento;
 import com.senai.eli.Repository.EventoRepository;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestBody;
-
 
 
 @Controller
@@ -26,8 +23,19 @@ public class EventoController {
     public String criar(){
         return "evento/criar";
     }
+
     @PostMapping("/evento/criar")
-    public String criar(Evento ev){
+    public String criarEvento(@Valid @ModelAttribute Evento evento, BindingResult result) {
+        if (result.hasErrors()) {
+            return "Erro ao criar evento";
+        }
+
+        er.save(evento);
+        return "redirect:/evento";
+    }
+
+    @PostMapping("/evento/salvar-evento")
+    public String salvarEvento(Evento ev){
         er.save(ev);
         return "redirect:/evento";
     }

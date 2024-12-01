@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.ColumnDefault;
 import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -30,33 +32,37 @@ public class Evento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "descricao", nullable = false)
+    @NotNull
+    @Size(min = 10, max = 200)
+    @Column(name = "descricao")
     private String descricao;
     
-    @Column(name = "ip", nullable = false)
+    @Column(name = "ip")
     private String ip;
 
-    @Column(name = "valor", nullable = false)
+    @Column(name = "valor")
     @ColumnDefault("0")
     private double valor = 0;
 
-    @Column(name = "banner", nullable = false)
+    @Column(name = "banner")
     private String banner;
 
-    @Column(name = "nome", nullable = false)
+    @NotNull
+    @Size(min = 3, max = 50)
+    @Column(name = "nome")
     private String nome;
 
-    @Column(name = "aprovado", nullable = false)
+    @Column(name = "aprovado")
     @ColumnDefault("false")
     private boolean aprovado = false;
 
     @Column(name = "indexador")
     private String indexador;
 
-    @Column(name = "responsavel", nullable = false)
+    @Column(name = "responsavel")
     private String responsavel;
 
-    @Column(name = "cronograma", nullable = false)
+    @Column(name = "cronograma")
     private String cronograma;
 
     @ManyToMany

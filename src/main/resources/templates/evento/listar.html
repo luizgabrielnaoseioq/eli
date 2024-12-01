@@ -1,15 +1,20 @@
-<a href="/evento/criar">Adicionar Evento</a>
+<a href="/evento/criar" xmlns:th="http://www.w3.org/1999/xhtml">Adicionar Evento</a>
 <table border="1">
     <tr>
         <th>#</th>
         <th>Nome</th>
         <th>Descrição</th>
+        <th>Reponsavel</th>
+        <th>Local</th>
         <th>Data</th>
         <th>Ações</th>
     </tr>
     <tr th:each="tarefa : ${listaEventosNoFront}">
         <td th:text="${tarefa.id}"></td>
+        <td th:text="${tarefa.banner}"></td>
         <td th:text="${tarefa.nome}"></td>
+        <td th:text="${tarefa.responsavel}"></td>
+        <td th:text="${tarefa.local}"></td>
         <td th:text="${tarefa.descricao}"></td>
         <td th:text="${tarefa.data}"></td>
         <td>

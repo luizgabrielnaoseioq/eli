@@ -1,13 +1,18 @@
-
-<form   th:action="@{/evento/alterar/{id}(id=${id})}" 
-        th:object="${evento}" method="post">
+<form th:action="@{/evento/alterar/{id}(id=${id})}"
+      th:object="${evento}" method="post" xmlns:th="http://www.w3.org/1999/xhtml">
     <h3>Formulário de Criação de Eventos</h3>
 
     <label>Nome:</label>
     <input type="text" th:field="*{nome}">
 
+    <label>Responsavel:</label>
+    <inpu type="text" th:field="*{responsavel}">
+
     <label>Data:</label>
     <input type="date" th:field="*{data}">
+
+    <label>Local:</label>
+    <input type="text">
 
     <label>Descrição</label>
     <textarea th:field="*{descricao}"></textarea>

@@ -82,4 +82,6 @@ public class Evento {
 
     @ManyToMany(mappedBy = "eventos")
     private List<Usuario> usuarios = new ArrayList<>();
+
+
 }

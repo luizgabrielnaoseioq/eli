@@ -18,5 +18,4 @@ public enum Sexo {
         this.abreviacao = abreviacao;
         this.descricao = descricao;
     }
-
 }

@@ -11,7 +11,6 @@ import com.senai.eli.Enum.Sexo;
 import com.senai.eli.Validator.Telefone.Telefone;
 
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,7 +18,7 @@ import lombok.Setter;
 @Entity
 @Setter
 @Getter
-public class Usuario {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,5 +46,5 @@ public class Usuario {
             joinColumns = @JoinColumn(name = "usuario-id"),
             inverseJoinColumns = @JoinColumn(name = "evento-id")
     )
-    private List<Evento> eventos = new ArrayList<>();
+    private List<Event> events = new ArrayList<>();
 }

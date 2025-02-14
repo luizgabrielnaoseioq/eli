@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "relatorio")
-public class Relatorio {
+public class Report {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,5 +25,5 @@ public class Relatorio {
     @JoinTable(name = "relatorio_evento",
     joinColumns = @JoinColumn(name = "relatorio_id"),
     inverseJoinColumns = @JoinColumn(name = "evento_id"))
-    private List<Evento> eventos = new ArrayList<>();
+    private List<Event> events = new ArrayList<>();
 }

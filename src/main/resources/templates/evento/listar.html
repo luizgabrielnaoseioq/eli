@@ -1,4 +1,4 @@
-<a href="/evento/criar" xmlns:th="http://www.w3.org/1999/xhtml">Adicionar Evento</a>
+<a href="/event/criar" xmlns:th="http://www.w3.org/1999/xhtml">Adicionar Evento</a>
 <table border="1">
     <tr>
         <th>#</th>
@@ -18,7 +18,7 @@
         <td th:text="${tarefa.descricao}"></td>
         <td th:text="${tarefa.data}"></td>
         <td>
-            <a th:href="@{/evento/alterar/{id}(id=${tarefa.id})}">Alterar</a>
+            <a th:href="@{/event/alterar/{id}(id=${tarefa.id})}">Alterar</a>
         </td>
     </tr>
 </table>

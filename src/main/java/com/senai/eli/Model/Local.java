@@ -48,6 +48,6 @@ public class Local {
     private String cep;
 
     @OneToMany(mappedBy = "local", cascade = CascadeType.ALL)
-    private List<Evento> eventos = new ArrayList<>();
+    private List<Event> events = new ArrayList<>();
 
 }

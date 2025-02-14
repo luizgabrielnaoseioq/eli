@@ -1,14 +1,11 @@
 package com.senai.eli.Model;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.ColumnDefault;
-import org.springframework.boot.context.properties.bind.DefaultValue;
-import org.springframework.format.annotation.DateTimeFormat;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,7 +23,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Evento {
+public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -67,7 +64,7 @@ public class Evento {
 
     @ManyToMany
     @JoinTable(name = "evento_calendario")
-    private List<Calendario> calendarios = new ArrayList<>();
+    private List<Calendar> calendars = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "local_id")
@@ -75,13 +72,13 @@ public class Evento {
 
     @ManyToMany
     @JoinTable(name = "evento_grupo")
-    private List<GrupoTrabalho> grupos = new ArrayList<>();
+    private List<WorkGroup> grupos = new ArrayList<>();
 
     @ManyToMany(mappedBy = "eventos")
-    private List<Relatorio> relatorios = new ArrayList<>();
+    private List<Report> relatorios = new ArrayList<>();
 
     @ManyToMany(mappedBy = "eventos")
-    private List<Usuario> usuarios = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
 
 
 }

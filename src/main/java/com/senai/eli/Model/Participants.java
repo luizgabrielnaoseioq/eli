@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +12,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Participantes {
+public class Participants {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,5 +26,5 @@ public class Participantes {
             joinColumns = @JoinColumn(name = "participante_id"),
             inverseJoinColumns = @JoinColumn(name = "evento_id")
     )
-    private List<Evento> eventos = new ArrayList<>();
+    private List<Event> events = new ArrayList<>();
 }
